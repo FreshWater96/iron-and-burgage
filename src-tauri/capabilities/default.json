@@ -1,0 +1,1 @@
+{"identifier":"default","description":"Local game window. No filesystem, shell or network plugin access.","windows":["main"],"permissions":["core:default"]}

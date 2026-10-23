@@ -1,0 +1,42 @@
+{
+  "name": "clyde-and-crown",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 4173",
+    "build": "node scripts/package-desktop.mjs && tsc --noEmit && vite build && node scripts/build-offline.mjs",
+    "check": "node --import tsx --test tests/*.test.ts",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build"
+  },
+  "dependencies": {
+    "@recast-navigation/core": "^0.43.0",
+    "@recast-navigation/generators": "^0.43.0",
+    "@recast-navigation/three": "^0.43.0",
+    "@tauri-apps/api": "^2.12.4",
+    "bitecs": "0.3.40",
+    "earcut": "^3.0.2",
+    "geotiff": "^3.0.5",
+    "lucide-react": "^0.468.0",
+    "polygon-clipping": "^0.15.7",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "three": "^0.180.0",
+    "three-bvh-csg": "^0.0.17",
+    "three-mesh-bvh": "^0.9.1",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.12.4",
+    "@types/earcut": "^3.0.0",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.1.16",
+    "@types/react-dom": "^19.1.9",
+    "@types/three": "^0.180.0",
+    "fflate": "^0.8.3",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7"
+  }
+}

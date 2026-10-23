@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.sites-local/
+*.tar.gz
+
+src-tauri/target/
+public/downloads/*.zip

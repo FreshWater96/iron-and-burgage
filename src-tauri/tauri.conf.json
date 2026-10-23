@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Clyde & Crown",
+  "version": "0.2.0",
+  "identifier": "com.clydeandcrown.game",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:4173",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Clyde & Crown",
+        "width": 1440,
+        "height": 960,
+        "minWidth": 850,
+        "minHeight": 650
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; worker-src 'self' blob:; connect-src ipc: http://ipc.localhost http://localhost:4173 ws://localhost:4173; font-src 'self' data:"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis"
+    ],
+    "shortDescription": "Regional industrial strategy on the Clyde",
+    "icon": [
+      "icons/icon.png",
+      "icons/icon.ico"
+    ]
+  }
+}

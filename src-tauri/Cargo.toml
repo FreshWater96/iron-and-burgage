@@ -1,0 +1,23 @@
+[package]
+name = "clyde-crown"
+version = "0.2.0"
+edition = "2021"
+
+[features]
+default = ["desktop"]
+desktop = ["dep:tauri", "dep:tauri-build"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [], optional = true }
+
+[dependencies]
+tauri = { version = "2", features = [], optional = true }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+hecs = "0.10"
+rayon = "1.10"
+
+[[bin]]
+name = "clyde-crown"
+path = "src/main.rs"
+required-features = ["desktop"]

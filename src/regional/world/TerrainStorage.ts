@@ -1,0 +1,4 @@
+import type {RasterLayer} from './RegionalHeight';
+function open(){return new Promise<IDBDatabase>((resolve,reject)=>{const r=indexedDB.open('clyde-crown-terrain',1);r.onupgradeneeded=()=>r.result.createObjectStore('layers',{keyPath:'name'});r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
+export async function persistLayer(layer:RasterLayer){const db=await open();try{await new Promise<void>((resolve,reject)=>{const t=db.transaction('layers','readwrite');t.objectStore('layers').put(layer);t.oncomplete=()=>resolve();t.onerror=()=>reject(t.error);});}finally{db.close();}}
+export async function loadLayers(){const db=await open();try{return await new Promise<RasterLayer[]>((resolve,reject)=>{const r=db.transaction('layers').objectStore('layers').getAll();r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}finally{db.close();}}
